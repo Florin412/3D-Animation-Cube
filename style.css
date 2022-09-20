@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 2rem;
+  perspective: 1300px;
+  background-image: url(/images/pattern-background-desktop.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: hsl(225deg, 100%, 94%);
+}
+
+.cube {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  animation: spin 3s linear infinite 0.5s;
+}
+
+.side {
+  --size: 200px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: var(--size);
+  height: var(--size);
+
+  background-color: hsla(200, 100%, 50%, 0.5);
+  border: 3px solid hsla(200, 100%, 20%, 0.5);
+  position: absolute;
+
+  transform: rotateX(var(--rotate-x, 0)) rotateY(var(--rotate-y, 0))
+    translateZ(calc(var(--size) / 2));
+}
+
+.left {
+  --rotate-y: -90deg;
+}
+
+.right {
+  --rotate-y: 90deg;
+}
+
+.top {
+  --rotate-x: 90deg;
+}
+
+.bottom {
+  --rotate-x: -90deg;
+}
+
+.back {
+  --rotate-y: 180deg;
+}
+
+@keyframes spin {
+  form {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+
+  to {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}

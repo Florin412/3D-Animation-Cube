@@ -25,6 +25,10 @@
   animation: spin 3s linear infinite 0.5s;
 }
 
+.cube:hover {
+  animation-play-state: paused;
+}
+
 .side {
   --size: 200px;
 
